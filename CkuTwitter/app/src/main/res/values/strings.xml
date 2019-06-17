@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">CkuTwitter</string>
     <string name="tweet_info">%1$s | %2$s</string>
+
+    <string name="networking_tweet_initial_text">(Tap the button to fetch a tweet)</string>
+    <string name="networking_button_text">Fetch tweet</string>
 </resources>

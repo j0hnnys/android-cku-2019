@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "375391340658",
+    "firebase_url": "https://ckutwitter-app.firebaseio.com",
+    "project_id": "ckutwitter-app",
+    "storage_bucket": "ckutwitter-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:375391340658:android:c2e5139f16c392ee",
+        "android_client_info": {
+          "package_name": "com.cku.twitter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "375391340658-pdtt4guarfn7sphj67vf6j76ohndiudo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDf92K9MnWKlluyCS4hxSRUIWk2g5thy_o"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

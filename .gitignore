@@ -1,0 +1,22 @@
+# Generated files
+bin/
+gen/
+build/
+
+# Local configuration files (sdk path, etc)
+local.properties
+
+# Android Studio
+.idea/*
+.gradle
+*.iml
+CkuTwitter/.idea/*
+!CkuTwitter/.idea/codeStyles/
+!CkuTwitter/.idea/inspectionProfiles
+!CkuTwitter/.idea/fileTemplates
+
+# Mac files
+.DS_Store
+
+# Miscellaneous
+.metadata

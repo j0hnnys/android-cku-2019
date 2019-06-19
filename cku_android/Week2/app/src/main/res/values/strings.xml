@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Week 2</string>
+
+    <string name="main_activity_welcome_message">Hello CK!</string>
+    <string name="main_activity_action_button_text">Launch Activity Two</string>
+    <string name="activity_two_welcome_message">Hello Activity Two!</string>
+</resources>

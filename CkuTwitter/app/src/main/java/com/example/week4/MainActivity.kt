@@ -1,9 +1,9 @@
 package com.example.week4
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.cku.twitter.R
@@ -41,8 +41,8 @@ class MainActivity : AppCompatActivity() {
 
         val call = httpClient.newCall(request)
 
-        // FIXME: NetworkOnMainThreadException
-//        call.execute()
+        // Don't use this call unless you're on the background thread already.
+        // call.execute()
 
         // Note: OkHTTP will perform this networking operation on a background thread for you.
         call.enqueue(object : okhttp3.Callback {
@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
                 val tweet = JSONObject(jsonString).optString("tweet")
 
                 // FIXME: CalledFromWrongThreadException
-//                textAdapter.addItem(tweet)
+                // textAdapter.addItem(tweet)
 
                 runOnUiThread {
                     textAdapter.addItem(tweet)

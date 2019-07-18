@@ -1,10 +1,11 @@
-package com.cku.networkingexample
+package com.example.week3
 
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.cku.twitter.R
 import okhttp3.Call
 import okhttp3.OkHttpClient
@@ -13,22 +14,24 @@ import okhttp3.Response
 import org.json.JSONObject
 import java.io.IOException
 
-class NetworkingActivity : AppCompatActivity() {
-
-    private lateinit var tweetText: TextView
-    private lateinit var fetchTweetButton: Button
+class MainActivity : AppCompatActivity() {
 
     private val httpClient = OkHttpClient.Builder().build()
+    val textAdapter = TextAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_networking)
+        setContentView(R.layout.activity_main)
 
-        tweetText = findViewById(R.id.tweet_text)
-        fetchTweetButton = findViewById(R.id.button)
+        val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
+        val button = findViewById<Button>(R.id.button)
 
-        fetchTweetButton.setOnClickListener {
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = textAdapter
+
+        button.setOnClickListener {
             fetchTweet()
+            recyclerView.scrollToPosition(0)
         }
     }
 
@@ -49,15 +52,15 @@ class NetworkingActivity : AppCompatActivity() {
                 val tweet = JSONObject(jsonString).optString("tweet")
 
                 // FIXME: CalledFromWrongThreadException
-                tweetText.text = tweet
+                textAdapter.addItem(tweet)
 
                 runOnUiThread {
-                    tweetText.text = tweet
+                    textAdapter.addItem(tweet)
                 }
             }
 
             override fun onFailure(call: Call, e: IOException) {
-                Toast.makeText(this@NetworkingActivity, "Failed to fetch tweet", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@MainActivity, "Failed to fetch tweet", Toast.LENGTH_SHORT).show()
             }
         })
     }

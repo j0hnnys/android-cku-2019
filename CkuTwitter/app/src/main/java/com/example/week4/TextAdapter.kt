@@ -5,24 +5,21 @@ import androidx.recyclerview.widget.RecyclerView
 
 class TextAdapter : RecyclerView.Adapter<TextViewHolder>() {
 
-    private val models = mutableListOf(
-        "hello",
-        "goodbye",
-        "see ya later"
-    )
+    private val tweets: MutableList<Tweet> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TextViewHolder {
         return TextViewHolder(parent)
     }
 
-    override fun getItemCount() = models.size
+    override fun getItemCount() = tweets.size
 
     override fun onBindViewHolder(holder: TextViewHolder, position: Int) {
-        holder.bind(models[position])
+        holder.bind(tweets[position])
     }
 
-    fun addItem(model: String) {
-        models.add(0, model)
-        notifyItemInserted(0)
+    fun updateTweets(newTweets: List<Tweet>) {
+        tweets.clear()
+        tweets.addAll(newTweets)
+        notifyDataSetChanged()
     }
 }
